@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ISP Pro | حارث سمير النصير — برمجة ISP متكاملة وأنظمة برمجية للأعمال</title>
-<meta name="description" content="ISP Pro بإدارة المبرمج حارث سمير النصير — برمجة ISP متكاملة: MikroTik، SAS Radius، توزيع أحمال PCC، جدران نارية وMangle، ووصول VPN كامل، إلى جانب أنظمة برمجية متكاملة للشركات والمصانع والمستشفيات والمتاجر.">
+<title>حارث سمير النصير | ISP Pro — أنظمة برمجية، مواقع، وشبكات ISP متكاملة</title>
+<meta name="description" content="مع المبرمج حارث سمير النصير: أنظمة برمجية متكاملة للشركات والمصانع والمستشفيات والمتاجر، مواقع وتطبيقات، متاجر إلكترونية، وبرمجة شبكات ISP كاملة: MikroTik، SAS Radius، توزيع أحمال PCC، جدران نارية، وVPN.">
 <style>
   :root{
     --bg:#070b14; --bg2:#0b1220; --card:#0e1729; --line:#1b2740;
@@ -51,6 +51,18 @@
   .lead{color:var(--mut);max-width:640px;margin-bottom:42px}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .domains{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .domain{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:34px;position:relative;overflow:hidden}
+  .domain:before{content:"";position:absolute;top:-70px;inset-inline-end:-70px;width:180px;height:180px;border-radius:50%;background:var(--grad);opacity:.12;filter:blur(20px)}
+  .domain .d-title{display:flex;align-items:center;gap:14px;font-size:22px;font-weight:900;margin-bottom:10px}
+  .domain .d-label{margin-left:0;margin-right:auto;font-size:12px;font-weight:800;letter-spacing:1px;border:1px solid var(--line);border-radius:20px;padding:3px 12px;color:var(--acc1)}
+  .domain p{color:var(--mut);font-size:15px;margin-bottom:20px}
+  .pills{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{border:1px solid var(--line);background:rgba(34,211,238,.06);border-radius:30px;padding:8px 16px;font-size:14px;font-weight:700;transition:.2s}
+  .pill:hover{border-color:var(--acc1);color:var(--acc1)}
+  .sub-h{display:flex;align-items:center;gap:14px;margin:6px 0 18px;font-size:21px;font-weight:800}
+  .sub-h:before{content:"";width:34px;height:4px;border-radius:4px;background:var(--grad)}
+  @media(max-width:900px){.domains{grid-template-columns:1fr}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.25s;position:relative;overflow:hidden}
   .card:hover{transform:translateY(-6px);border-color:var(--acc1);box-shadow:0 12px 40px -12px rgba(34,211,238,.25)}
   .card .ico{width:56px;height:56px;border-radius:14px;background:rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
@@ -94,9 +106,9 @@
     <a class="logo" href="#"><span class="dot"></span>ISP&nbsp;<span>Pro</span></a>
     <nav>
       <ul>
+        <li><a href="#domains">مجالاتنا</a></li>
         <li><a href="#services">الخدمات</a></li>
         <li><a href="#why">لماذا نحن</a></li>
-        <li><a href="#process">خطوات العمل</a></li>
         <li><a href="#contact">تواصل</a></li>
       </ul>
     </nav>
@@ -108,17 +120,51 @@
 <section class="hero">
   <div class="wrap">
     <span class="badge">المبرمج حارث سمير النصير · ISP Pro</span>
-    <h1>أحوّل شبكتك إلى <span class="hl">ISP متكامل</span> من الصفر حتى الجهاز</h1>
-    <p class="sub">برمجة أجهزة MikroTik، نظام فواتير SAS Radius، توزيع الأحمال PCC، جدران الحماية وقواعد Mangle، ووصول VPN كامل لشبكتك — تسليم جاهز مع وثائق ودعم. ولأعمالك غير الإنترنتً نبتكر أنظمة برمجية متكاملة تليق بتوسّعها.</p>
+    <h1>أنظمة برمجية، مواقع، وشبكات ISP — <span class="hl">حلول تقنية متكاملة</span></h1>
+    <p class="sub">نبرمج أنظمتك الإدارية ومواقعك ومتاجرك الإلكترونية، ونبني شبكاتك وبرامجة أجهزتك من MikroTik و SAS Radius حتى أمانها الكامل — كل ما يحتاجه مشروعك التقني في مكان واحد، بتسليم جاهز ووثائق ودعم.</p>
     <div class="herobtns">
       <a class="btn solid" href="#contact">تواصل الآن</a>
       <a class="btn ghost" href="#services">استعرض الخدمات</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>+7</b><i>سنوات في الشبكات</i></div>
-      <div class="stat"><b>+30</b><i>مشروع ISP منجز</i></div>
+      <div class="stat"><b>+7</b><i>سنوات في الشبكات والبرمجيات</i></div>
+      <div class="stat"><b>+45</b><i>مشروعاً منجزاً بين القطاعين</i></div>
+      <div class="stat"><b>2</b><i>قطاعان: شبكات + برمجيات</i></div>
       <div class="stat"><b>24/7</b><i>دعم بعد التسليم</i></div>
-      <div class="stat"><b>100%</b><i>توثيق كامل</i></div>
+    </div>
+  </div>
+</section>
+
+<section id="domains">
+  <div class="wrap">
+    <div class="sec-tag">مجالاتنا</div>
+    <h2>نعمل في قطاعين، بإتقانٍ واحد</h2>
+    <p class="lead">هذه هي مجمل أعمالي — اختر ما يحتاجه مشروعك وسأكمل الباقي لك.</p>
+    <div class="domains">
+      <div class="domain reveal">
+        <div class="d-title">🌐 شبكات الإنترنت والاتصالات<span class="d-label">ISP &amp; Networks</span></div>
+        <p>بناء شبكات مزوّدي الإنترنت بأحدث المعايير: من توزيع الأحمال والأمان إلى الربط الكامل مع أنظمة الفوترة والتحكم بالمشتركين.</p>
+        <div class="pills">
+          <span class="pill">برمجة ISP متكاملة</span>
+          <span class="pill">MikroTik RouterOS</span>
+          <span class="pill">SAS Radius</span>
+          <span class="pill">Load Balancing PCC</span>
+          <span class="pill">Firewall & Mangle</span>
+          <span class="pill">VPN آمنة عن بعد</span>
+        </div>
+      </div>
+      <div class="domain reveal">
+        <div class="d-title">💻 البرمجيات والأنظمة والمواقع<span class="d-label">Software &amp; Web</span></div>
+        <p>أنظمة إدارية متكاملة لكل القطاعات، ومواقع ومتاجر إلكترونية تُبنى حول عملك لتعمل معه وتربح من أجله.</p>
+        <div class="pills">
+          <span class="pill">أنظمة إدارية متكاملة</span>
+          <span class="pill">أنظمة مخازن ومبيعات</span>
+          <span class="pill">مستشفيات وعيادات</span>
+          <span class="pill">متاجر إلكترونية</span>
+          <span class="pill">مواقع ولوحات تحكم</span>
+          <span class="pill">تطبيقات جوال</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -126,8 +172,10 @@
 <section id="services">
   <div class="wrap">
     <div class="sec-tag">الخدمات</div>
-    <h2>حلول تقنية متكاملة لمختلف القطاعات</h2>
-    <p class="lead">سواء كنت تبني شبكة مزوّد خدمة أو تقدّم نظاماً إدارياً متكاملاً — نصمّم، نبرمج، نربط، ونسلّم عملاً جاهزاً يخدم فريقك وعملاءك.</p>
+    <h2>خدماتنا بالتفصيل</h2>
+    <p class="lead">عملنا موزّع على قطاعين متكاملين — شبكاتٍ وإنترنتٍ، وبرمجياتٍ ومواقع — ننفّذهما بمعايير واحدة ونسلّمهما جاهزين بوثائق ودعم مستمر.</p>
+
+    <div class="sub-h">شبكات الإنترنت والاتصالات</div>
     <div class="grid">
 
       <div class="card reveal">
@@ -170,6 +218,25 @@
         <h3>VPN Full Network Access</h3>
         <p>وصول كامل لشبكة عميلك عن بعد: تتبع، تحديثات، دعم فوري، وإدارة من أي مكان بالعالم.</p>
         <ul><li>L2TP/OpenVPN/WireGuard</li><li>إدارة كاملة عن بعد</li><li>متابعة تنفيذ المشاريع</li></ul>
+      </div>
+
+    </div>
+
+    <div class="sub-h">البرمجة والأنظمة والمواقع</div>
+    <div class="grid">
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
+        <h3>مواقع ولوحات إدارة</h3>
+        <p>تصميم وبرمجة مواقع حديثة سريعة ومتجاوبة مع الجوال، تليق بعلامتك التجارية وترتقي بك أمام عملائك.</p>
+        <ul><li>مواقع شركات وعلامات تجارية</li><li>لوحات تحكم متكاملة</li><li>تحسين ظهور وسرعة عالية</li></ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><path d="M4 4h2l2.6 10.4a2 2 0 002 1.6h6.8a2 2 0 001.9-1.4L21 8H7"/><circle cx="10" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></div>
+        <h3>متاجر إلكترونية</h3>
+        <p>متاجر متكاملة بالدفع والشحن وإدارة المخزون، تدير مبيعاتك وطلباتك من مكان واحد وتنمو معك.</p>
+        <ul><li>سلة شراء ودفع آمن</li><li>إدارة مخزون وطلبات</li><li>ربط شحنات وفوترة</li></ul>
       </div>
 
       <div class="card reveal">
@@ -241,7 +308,7 @@
 </section>
 
 <footer>
-  <div class="wrap">© <span id="yr"></span> ISP Pro — إعداد المبرمج حارث سمير النصير · شبكات ISP، MikroTik، SAS Radius، VPN، وأنظمة برمجية متكاملة</div>
+  <div class="wrap">© <span id="yr"></span> ISP Pro — إعداد المبرمج حارث سمير النصير · شبكات ISP وأنظمة برمجية ومواقع ومتاجر إلكترونية</div>
 </footer>
 
 <script>
