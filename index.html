@@ -86,6 +86,14 @@
   .contact{border-radius:24px;background:linear-gradient(150deg,var(--card),var(--bg2));border:1px solid var(--line);padding:46px;text-align:center}
   .contact .cn{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:34px;text-align:start}
   .cbox{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px;text-decoration:none;color:var(--txt);transition:.2s;cursor:pointer}
+  .cn-icons{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:26px}
+  .sicon{width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);transition:.25s;position:relative}
+  .sicon img{width:52px;height:52px;display:block;pointer-events:none}
+  .sicon:hover{transform:translateY(-5px) scale(1.06)}
+  .sicon.wa:hover{background:#25D366;border-color:#25D366;box-shadow:0 12px 28px rgba(37,211,102,.4)}
+  .sicon.tg:hover{background:#26A5E4;border-color:#26A5E4;box-shadow:0 12px 28px rgba(38,165,228,.4)}
+  .sicon.gm:hover{background:#EA4335;border-color:#EA4335;box-shadow:0 12px 28px rgba(234,67,53,.4)}
+  .sicon.fb:hover{background:#1877F2;border-color:#1877F2;box-shadow:0 12px 28px rgba(24,119,242,.4)}
   .cbox:hover{border-color:var(--acc1)}
   .cbox b{display:flex;align-items:center;gap:10px;font-size:17px;margin-bottom:6px}
   .cbox span{color:var(--mut);font-size:14px}
@@ -288,20 +296,12 @@
     <div class="contact reveal">
       <div class="sec-tag">تواصل معي</div>
       <h2>حارث سمير النصير — جاهز لمشروعك</h2>
-      <p class="lead" style="margin:0 auto 0">شاركني متطلباتك عبر واتساب أو البريد أو فيسبوك، وسأعود إليك بحل مقترح مفصل.</p>
-      <div class="cn">
-        <a class="cbox" href="https://wa.me/9647702513626" target="_blank" rel="noopener">
-          <b>💬 واتساب</b><span>+964 770 251 3626</span>
-        </a>
-        <a class="cbox" href="https://t.me/aborita1985" target="_blank" rel="noopener">
-          <b>✈️ تيليجرام</b><span>@aborita1985</span>
-        </a>
-        <a class="cbox" href="mailto:rita.alnisayer@gmail.com">
-          <b>📧 البريد</b><span>rita.alnisayer@gmail.com</span>
-        </a>
-        <a class="cbox" href="https://www.facebook.com/alnisayer85" target="_blank" rel="noopener">
-          <b>📘 فيسبوك</b><span>facebook.com/alnisayer85</span>
-        </a>
+      <p class="lead" style="margin:0 auto 0">شاركني متطلباتك من أي تطبيق تفضّله، وسأعود إليك بحل مقترح مفصل.</p>
+      <div class="cn-icons">
+        <a class="sicon wa" href="https://wa.me/9647702513626" target="_blank" rel="noopener" title="واتساب" aria-label="واتساب"><img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="واتساب"></a>
+        <a class="sicon tg" href="https://t.me/aborita1985" target="_blank" rel="noopener" title="تيليجرام" aria-label="تيليجرام"><img src="https://cdn.simpleicons.org/telegram/ffffff" alt="تيليجرام"></a>
+        <a class="sicon gm" href="mailto:rita.alnisayer@gmail.com" title="البريد الإلكتروني" aria-label="البريد الإلكتروني"><img src="https://cdn.simpleicons.org/gmail/ffffff" alt="البريد الإلكتروني"></a>
+        <a class="sicon fb" href="https://www.facebook.com/alnisayer85" target="_blank" rel="noopener" title="فيسبوك" aria-label="فيسبوك"><img src="https://cdn.simpleicons.org/facebook/ffffff" alt="فيسبوك"></a>
       </div>
     </div>
   </div>
