@@ -17,10 +17,14 @@
   .wrap{max-width:1150px;margin:0 auto;padding:0 22px}
 
   header{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(7,11,20,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:22px;color:#fff;display:flex;align-items:center;gap:10px}
-  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .dot{width:11px;height:11px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px var(--acc1)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0;min-height:64px}
+  .logo{font-weight:900;font-size:20px;color:#fff;display:flex;align-items:center;gap:12px;text-decoration:none}
+  .mark{width:42px;height:42px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(34,211,238,.35);flex:none;position:relative}
+  .mark:after{content:"";position:absolute;inset:-5px;border-radius:18px;border:1.5px dashed rgba(34,211,238,.5);animation:orn 16s linear infinite}
+  @keyframes orn{to{transform:rotate(360deg)}}
+  .lname{display:flex;flex-direction:column;line-height:1.15}
+  .lname i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lname em{font-style:normal;font-size:11px;font-weight:700;color:var(--acc1);letter-spacing:.6px}
   nav ul{display:flex;gap:26px;list-style:none}
   nav a{color:var(--txt);text-decoration:none;font-size:15px;font-weight:600;transition:.2s}
   nav a:hover{color:var(--acc1)}
@@ -111,7 +115,10 @@
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#"><span class="dot"></span>ISP&nbsp;<span>Pro</span></a>
+    <a class="logo" href="#">
+      <span class="mark"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#03121a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0120 0"/><path d="M5 12.2a10.5 10.5 0 0114 0"/><path d="M9.5 15.6a5.8 5.8 0 015 0"/><path d="M12 19h.01"/></svg></span>
+      <span class="lname">ISP&nbsp;<i>Pro</i><em>حارث سمير النصير</em></span>
+    </a>
     <nav>
       <ul>
         <li><a href="#domains">مجالاتنا</a></li>
@@ -135,7 +142,7 @@
       <a class="btn ghost" href="#services">استعرض الخدمات</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>+20</b><i>سنوات في الشبكات والبرمجيات</i></div>
+      <div class="stat"><b>+7</b><i>سنوات في الشبكات والبرمجيات</i></div>
       <div class="stat"><b>+45</b><i>مشروعاً منجزاً بين القطاعين</i></div>
       <div class="stat"><b>2</b><i>قطاعان: شبكات + برمجيات</i></div>
       <div class="stat"><b>24/7</b><i>دعم بعد التسليم</i></div>
