@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProISP | برمجة ISP متكاملة — شبكات، MikroTik، SAS Radius وVPN</title>
+<meta name="description" content="برمجة ISP متكاملة: أجهزة MikroTik، SAS Radius، توزيع أحمال PCC، جدران نارية وقواعد Mangle، ووصول VPN كامل لشبكتك عن بعد.">
+<style>
+  :root{
+    --bg:#070b14; --bg2:#0b1220; --card:#0e1729; --line:#1b2740;
+    --txt:#e8eef9; --mut:#92a3c2; --acc1:#22d3ee; --acc2:#818cf8; --ok:#34d399;
+    --grad:linear-gradient(135deg,#22d3ee,#818cf8);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",Tahoma,"Noto Kufi Arabic",Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;overflow-x:hidden}
+  .wrap{max-width:1150px;margin:0 auto;padding:0 22px}
+
+  header{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(7,11,20,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;font-size:22px;color:#fff;display:flex;align-items:center;gap:10px}
+  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .dot{width:11px;height:11px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px var(--acc1)}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{color:var(--txt);text-decoration:none;font-size:15px;font-weight:600;transition:.2s}
+  nav a:hover{color:var(--acc1)}
+  .cta{background:var(--grad);color:#03121a!important;padding:9px 18px;border-radius:30px;font-weight:800!important}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+  .hero{position:relative;padding:170px 0 90px;text-align:center;overflow:hidden}
+  .hero:before,.hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.35;z-index:-1}
+  .hero:before{background:#22d3ee;top:-160px;right:-120px}
+  .hero:after{background:#818cf8;bottom:-200px;left:-140px}
+  .badge{display:inline-block;padding:7px 16px;border:1px solid var(--line);border-radius:30px;font-size:13px;color:var(--mut);background:var(--card);margin-bottom:24px}
+  h1{font-size:clamp(30px,5.5vw,58px);font-weight:900;line-height:1.3;margin-bottom:22px}
+  h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--mut);font-size:clamp(16px,2.2vw,21px);max-width:720px;margin:0 auto 36px}
+  .herobtns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+  .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;padding:14px 30px;border-radius:40px;font-size:16px;transition:.2s}
+  .btn.solid{background:var(--grad);color:#03121a}
+  .btn.ghost{border:1.5px solid var(--line);color:var(--txt)}
+  .btn.ghost:hover{border-color:var(--acc1);color:var(--acc1)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 10px}
+  .stat b{font-size:30px;display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat i{font-style:normal;color:var(--mut);font-size:14px}
+
+  section{padding:90px 0}
+  .sec-tag{color:var(--acc1);font-weight:800;letter-spacing:1px;margin-bottom:10px}
+  h2{font-size:clamp(24px,3.5vw,38px);font-weight:900;margin-bottom:16px}
+  .lead{color:var(--mut);max-width:640px;margin-bottom:42px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.25s;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-6px);border-color:var(--acc1);box-shadow:0 12px 40px -12px rgba(34,211,238,.25)}
+  .card .ico{width:56px;height:56px;border-radius:14px;background:rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .card h3{font-size:19px;font-weight:800;margin-bottom:10px}
+  .card p{color:var(--mut);font-size:14.5px}
+  .card ul{list-style:none;margin-top:12px;display:grid;gap:6px}
+  .card li{font-size:13.5px;color:var(--txt);display:flex;gap:8px;align-items:center}
+  .card li:before{content:"✓";color:var(--ok);font-weight:900}
+
+  .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feat{background:linear-gradient(160deg,var(--card),transparent);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .feat b{font-size:17px;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .feat p{color:var(--mut);font-size:14px}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:st}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;position:relative}
+  .step:before{counter-increment:st;content:"0" counter(st);position:absolute;top:18px;inset-inline-end:20px;font-size:40px;font-weight:900;color:rgba(34,211,238,.16)}
+  .step b{font-size:17px;display:block;margin-bottom:8px}
+  .step p{color:var(--mut);font-size:14px}
+
+  .contact{border-radius:24px;background:linear-gradient(150deg,var(--card),var(--bg2));border:1px solid var(--line);padding:46px;text-align:center}
+  .contact .cn{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px;text-align:start}
+  .cbox{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px;text-decoration:none;color:var(--txt);transition:.2s}
+  .cbox:hover{border-color:var(--acc1)}
+  .cbox b{display:flex;align-items:center;gap:10px;font-size:17px;margin-bottom:6px}
+  .cbox span{color:var(--mut);font-size:14px}
+
+  footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--mut);font-size:13.5px}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.6s}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){.grid,.feats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.contact .cn{grid-template-columns:1fr}nav ul{display:none;position:absolute;top:64px;inset-inline:0;background:var(--bg2);border-bottom:1px solid var(--line);flex-direction:column;padding:20px 24px}.nav.open ul{display:flex}.burger{display:block}}
+  @media(max-width:560px){.grid,.feats,.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#"><span class="dot"></span><span>Pro</span>ISP</a>
+    <nav>
+      <ul>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#why">لماذا نحن</a></li>
+        <li><a href="#process">خطوات العمل</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="#contact">اطلب خدمتك</a>
+    <button class="burger" id="burger" aria-label="القائمة">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">برمجة أنظمة الإنترنت لكل مقدمي الخدمات</span>
+    <h1>أحوّل شبكتك إلى <span class="hl">ISP متكامل</span> من الصفر حتى الجهاز</h1>
+    <p class="sub">برمجة أجهزة MikroTik، نظام فواتير SAS Radius، توزيع الأحمال PCC، جدران الحماية وقواعد Mangle، ووصول VPN كامل لشبكتك — تسليم جاهز مع وثائق ودعم.</p>
+    <div class="herobtns">
+      <a class="btn solid" href="#contact">تواصل الآن</a>
+      <a class="btn ghost" href="#services">استعرض الخدمات</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>+7</b><i>سنوات في الشبكات</i></div>
+      <div class="stat"><b>+30</b><i>مشروع ISP منجز</i></div>
+      <div class="stat"><b>24/7</b><i>دعم بعد التسليم</i></div>
+      <div class="stat"><b>100%</b><i>توثيق كامل</i></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-tag">الخدمات</div>
+    <h2>كل ما يحتاجه مزوّد الإنترنت</h2>
+    <p class="lead">خدمات متكاملة تشمل البنية التحتية، التوزيع، الأمان، والتشغيل — ننفذها لك كاملة أو نكمّل ناقصاً مما عندك.</p>
+    <div class="grid">
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M8 8h5M8 16h3"/></svg></div>
+        <h3>برمجة ISP متكاملة</h3>
+        <p>تصميم وبرمجة شبكة مزوّد خدمة كاملة من الصفر: من الإنترنت إلى المشترك، مع أتمتة التشغيل.</p>
+        <ul><li>هيكلة الشبكة والـ IP Plan</li><li>فصل عبراء وتقارير</li><li>أتمتة تسليم الخدمات</li></ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12L4 7.5M12 12v9"/></svg></div>
+        <h3>برمجة أجهزة MikroTik</h3>
+        <p>إعداد وتخصيص كامل لأجهزة RouterOS: سيناريوهات، ترقيات، احتياط، وتهيئة متقدمة.</p>
+        <ul><li>RouterOS من الصفر</li><li>Hotspot و Bandwidth</li><li>نسخ احتياطية روتينية</li></ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+        <h3>SAS Radius</h3>
+        <p>تركيب وربط نظام Radius مع لوحة الفوترة والراوترات لحسابات المشتركين وتأمين الاستهلاك.</p>
+        <ul><li>الربط مع MikroTik</li><li>عينات استهلاك وتقارب</li><li>إدارة الحسابات تلقائياً</li></ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><path d="M2 12h3l3-7 4 14 3.5-11L17 12h5"/></svg></div>
+        <h3>Load Balancing PCC</h3>
+        <p>توزيع الأحمال على عدة خطوط إنترنت بكفاءة: جمع سعات، تعادل خطوط، وفصل شبكة كامل.</p>
+        <ul><li>PCC وتوزيع الاتصالات</li><li>متابعة و failover</li><li>توازن الخطوط غير المتساوية</li></ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Firewall &amp; Mangle Rules</h3>
+        <p>إحكام الشبكة بجدران حماية ومصفوفات قواعد Mangle للترتيب، التحكم، وتأمين حركة المرور.</p>
+        <ul><li>قواعد Mangle بعلامات</li><li>حجب وتقييدات</li><li>حماية من الهجمات</li></ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><path d="M4 10V7a3 3 0 013-3h10a3 3 0 013 3v3"/><path d="M2 10h20v10H2z"/><path d="M6 15h.01M10 15h.01M14 15h.01"/></svg></div>
+        <h3>VPN Full Network Access</h3>
+        <p>وصول كامل لشبكة عميلك عن بعد: تتبع، تحديثات، دعم فوري، وإدارة من أي مكان بالعالم.</p>
+        <ul><li>L2TP/OpenVPN/WireGuard</li><li>إدارة كاملة عن بعد</li><li>متابعة تنفيذ المشاريع</li></ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="why" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-tag">لماذا نحن</div>
+    <h2>شريك تقني يسلّم عملاً جاهزاً، لا سكربتات مبعثرة</h2>
+    <p class="lead">لا مجرد تنفيذ — نسلّم شبكة تعمل، موثّقة، وتقوم على الصيانة بعد التسليم.</p>
+    <div class="feats">
+      <div class="feat reveal"><b>⚙️ تنفيذ كامل</b><p>من الصفر حتى جهاز المشترك، بدون ترك نصف الحلول.</p></div>
+      <div class="feat reveal"><b>📄 توثيق شامل</b><p>مخططات وإعدادات موثقة تفهمها وتعدّلها بنفسك.</p></div>
+      <div class="feat reveal"><b>🛡️ أمان أولاً</b><p>جدران نارية وبيئة تعمل بمعايير آمنة منذ اليوم الأول.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-tag">خطوات العمل</div>
+    <h2>من التواصل إلى التسليم</h2>
+    <div class="steps">
+      <div class="step reveal"><b>تواصل ودراسة</b><p>نفهم وضعك الحالي وأهدافك وموازنتك.</p></div>
+      <div class="step reveal"><b>تصميم الحل</b><p>مخطط الشبكة والإعدادات بالتفصيل قبل التنفيذ.</p></div>
+      <div class="step reveal"><b>تنفيذ وربط</b><p>برمجة الأجهزة وربط الأنظمة واختبار كل مكوّن.</p></div>
+      <div class="step reveal"><b>تسليم ودعم</b><p>وثائق كاملة + دعم متواصل بعد التشغيل.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="sec-tag">تواصل معي</div>
+      <h2>جاهز لمشروعك — ابدأ المحادثة الآن</h2>
+      <p class="lead" style="margin:0 auto 0">شاركني متطلباتك وسأعود إليك بحل مقترح مفصل.</p>
+      <div class="cn">
+        <a class="cbox" href="https://wa.me/0000000000" target="_blank" rel="noopener">
+          <b>💬 واتساب</b><span>+000 0000 0000</span>
+        </a>
+        <a class="cbox" href="https://t.me/YourTelegram" target="_blank" rel="noopener">
+          <b>✈️ تيليجرام</b><span>@YourTelegram</span>
+        </a>
+        <a class="cbox" href="mailto:you@email.com">
+          <b>📧 البريد</b><span>you@email.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> ProISP — برمجة شبكات متكاملة · خدمات ISP، MikroTik، SAS Radius، VPN</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var burger = document.getElementById('burger');
+  var nav = document.querySelector('.nav');
+  burger.addEventListener('click', function(){ nav.classList.toggle('open'); });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+  </html>
