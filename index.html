@@ -18,21 +18,21 @@
   .wrap{max-width:1150px;margin:0 auto;padding:0 22px}
 
   header{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(7,11,20,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0;min-height:64px}
-  .logo{font-weight:900;font-size:20px;color:#fff;display:flex;align-items:center;gap:12px;text-decoration:none}
-  .mark{width:42px;height:42px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(34,211,238,.35);flex:none;position:relative}
-  .mark:after{content:"";position:absolute;inset:-5px;border-radius:18px;border:1.5px dashed rgba(34,211,238,.5);animation:orn 16s linear infinite}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;min-height:90px}
+  .logo{font-weight:900;font-size:30px;color:#fff;display:flex;align-items:center;gap:15px;text-decoration:none}
+  .mark{width:56px;height:56px;border-radius:18px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(34,211,238,.35);flex:none;position:relative}
+  .mark:after{content:"";position:absolute;inset:-6px;border-radius:23px;border:1.5px dashed rgba(34,211,238,.5);animation:orn 16s linear infinite}
   @keyframes orn{to{transform:rotate(360deg)}}
   .lname{display:flex;flex-direction:column;line-height:1.15}
   .lname i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lname em{font-style:normal;font-size:11px;font-weight:700;color:var(--acc1);letter-spacing:.6px}
+  .lname em{font-style:normal;font-size:16px;font-weight:800;color:var(--acc1);letter-spacing:.6px}
   nav ul{display:flex;gap:26px;list-style:none}
-  nav a{color:var(--txt);text-decoration:none;font-size:15px;font-weight:600;transition:.2s}
+  nav a{color:var(--txt);text-decoration:none;font-size:16px;font-weight:600;transition:.2s}
   nav a:hover{color:var(--acc1)}
-  .cta{background:var(--grad);color:#03121a!important;padding:9px 18px;border-radius:30px;font-weight:800!important}
+  .cta{background:var(--grad);color:#03121a!important;padding:11px 22px;border-radius:30px;font-weight:800!important}
   .burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
 
-  .hero{position:relative;padding:170px 0 90px;text-align:center;overflow:hidden}
+  .hero{position:relative;padding:200px 0 90px;text-align:center;overflow:hidden}
   .hero:before,.hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.35;z-index:-1}
   .hero:before{background:#22d3ee;top:-160px;right:-120px}
   .hero:after{background:#818cf8;bottom:-200px;left:-140px}
@@ -163,8 +163,8 @@
     .sdots{bottom:16px}
   }
 
-  @media(max-width:900px){.grid,.feats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.contact .cn{grid-template-columns:1fr}nav ul{display:none;position:absolute;top:64px;inset-inline:0;background:var(--bg2);border-bottom:1px solid var(--line);flex-direction:column;padding:20px 24px}.nav.open ul{display:flex}.burger{display:block}}
-  @media(max-width:560px){.grid,.feats,.steps{grid-template-columns:1fr}}
+  @media(max-width:900px){.grid,.feats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.contact .cn{grid-template-columns:1fr}nav ul{display:none;position:absolute;top:100%;inset-inline:0;background:var(--bg2);border-bottom:1px solid var(--line);flex-direction:column;padding:20px 24px}.nav.open ul{display:flex}.burger{display:block}}
+  @media(max-width:560px){.grid,.feats,.steps{grid-template-columns:1fr}.logo{font-size:23px;gap:11px}.mark{width:48px;height:48px;border-radius:16px}.lname em{font-size:13px}}
 </style>
 </head>
 <body>
@@ -172,7 +172,7 @@
 <header>
   <div class="wrap nav">
     <a class="logo" href="#">
-      <span class="mark"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#03121a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0120 0"/><path d="M5 12.2a10.5 10.5 0 0114 0"/><path d="M9.5 15.6a5.8 5.8 0 015 0"/><path d="M12 19h.01"/></svg></span>
+      <span class="mark"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#03121a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0120 0"/><path d="M5 12.2a10.5 10.5 0 0114 0"/><path d="M9.5 15.6a5.8 5.8 0 015 0"/><path d="M12 19h.01"/></svg></span>
       <span class="lname">ISP&nbsp;<i>Pro</i><em>حارث سمير النصير</em></span>
     </a>
     <nav>
