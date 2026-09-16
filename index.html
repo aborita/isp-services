@@ -129,10 +129,9 @@
   .slide.s-web:before{background:#f472b6}
   .slide.s-web:after{background:#fb7185}
   .s-tag{position:absolute;top:20px;inset-inline-end:26px;z-index:2;font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:4px 14px;border-radius:30px}
-  .s-media{flex:none;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:14px}
-  .s-icon{width:112px;height:112px;border-radius:30px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
-  .s-icon svg{width:56px;height:56px}
-  .s-num{font-size:15px;font-weight:900;letter-spacing:2px;color:rgba(255,255,255,.55)}
+  .s-media{flex:none;position:relative;z-index:1;width:min(430px,40%);display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+  .s-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;border:1.5px solid rgba(255,255,255,.18);box-shadow:0 24px 54px -18px rgba(0,0,0,.8)}
+  .s-num{font-size:15px;font-weight:900;letter-spacing:2px;color:rgba(255,255,255,.55);align-self:flex-end}
   .s-body{position:relative;z-index:1;flex:1;min-width:0}
   .s-lbl{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:5px 16px;margin-bottom:14px}
   .s-body h3{font-size:clamp(21px,3vw,30px);font-weight:900;margin-bottom:12px;line-height:1.35}
@@ -150,9 +149,9 @@
   .dot.on{width:26px;border-radius:10px;background:var(--grad)}
   @media(max-width:820px){
     .slide{padding:46px 64px 70px;flex-direction:column;align-items:flex-start;gap:22px}
-    .s-media{flex-direction:row;align-items:center;gap:16px}
-    .s-icon{width:80px;height:80px;border-radius:22px}
-    .s-icon svg{width:40px;height:40px}
+    .s-media{width:100%;flex-direction:row;align-items:center;gap:16px}
+    .s-img{aspect-ratio:16/9}
+    .s-num{display:none}
     .s-tag{top:16px;inset-inline-end:18px}
   }
   @media(max-width:560px){
@@ -215,7 +214,7 @@
         <article class="slide s-app">
           <span class="s-tag">إعلان</span>
           <div class="s-media">
-            <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.6"/><path d="M10 18.5h4"/><path d="M11 5h2"/></svg></div>
+            <img class="s-img" src="images/app.jpg" alt="تطبيقات الجوال">
             <span class="s-num">01</span>
           </div>
           <div class="s-body">
@@ -235,7 +234,7 @@
         <article class="slide s-sys">
           <span class="s-tag">إعلان</span>
           <div class="s-media">
-            <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg></div>
+            <img class="s-img" src="images/systems.jpg" alt="أنظمة برمجية متكاملة">
             <span class="s-num">02</span>
           </div>
           <div class="s-body">
@@ -255,7 +254,7 @@
         <article class="slide s-net">
           <span class="s-tag">إعلان</span>
           <div class="s-media">
-            <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18"/><path d="M12 3a15 15 0 000 18"/></svg></div>
+            <img class="s-img" src="images/network.jpg" alt="شبكات الإنترنت والاتصالات">
             <span class="s-num">03</span>
           </div>
           <div class="s-body">
@@ -275,7 +274,7 @@
         <article class="slide s-web">
           <span class="s-tag">إعلان</span>
           <div class="s-media">
-            <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.2 13H4.8L6 7z"/><path d="M9 10.5V7a3 3 0 016 0v3.5"/></svg></div>
+            <img class="s-img" src="images/web.jpg" alt="مواقع ومتاجر إلكترونية">
             <span class="s-num">04</span>
           </div>
           <div class="s-body">
